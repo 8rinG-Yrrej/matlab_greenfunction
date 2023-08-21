@@ -1,14 +1,18 @@
 function [hilbert_c,hilbert_Re,hilbert_Im,hilbert_aGR,hilbert_aGA]=cached_hilbertOps(om,gpu_side_hilbert)
-%cached_hilbertOps returns some helper functions for non-periodic Hilbert
-%transform useful for frequency domain Green's functions, over uniform or uniform-log sample (frequency) grid. In the
-%uniform case, they are all based on `cached_naiveHc`, which is returned in
-%`hilbert_c`. It performs the non-periodic version of Matlab signal toolbox
-%function `hilbert`.
-% hilbert_c(x) is like the Matlab `imag(hilbert(x))`
-% hilbert_Re is like the Matlab `hilbert`
-% hilbert_Im is like the Matlab `1i*(hilbert(x))`
-% hilbert_aGR returns retarded Green's functions from a spectral function
-% hilbert_aGA returns advanced Green's functions from a spectral function
+%cached_hilbertOps Hilbert transform helper functions over real line.
+%
+% cached_hilbertOps returns helper functions for aperiodic Hilbert
+% transform useful for real frequency Green's functions, over uniform or
+% uniform-log sample (frequency) grid. In the uniform case, they are all
+% based on `cached_naiveHc`, which is returned in `hilbert_c`. It performs
+% the non-periodic version of Matlab signal toolbox function `hilbert`.
+%
+% [hilbert_c,hilbert_Re,hilbert_Im,hilbert_aGR,hilbert_aGA]=cached_hilbertOps(om,gpu_side_hilbert)
+% hilbert_c(x) is like the Matlab `imag(hilbert(x))`.
+% hilbert_Re is like the Matlab `hilbert`.
+% hilbert_Im is like the Matlab `1i*(hilbert(x))`.
+% hilbert_aGR returns retarded Green's function from a spectral function.
+% hilbert_aGA returns advanced Green's function from a spectral function.
 
 if nargin == 1
   gpu_side_hilbert=false;
